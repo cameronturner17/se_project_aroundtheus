@@ -29,6 +29,16 @@
     height: 24px;
     width: 24px;
     grid-area: button;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #fff;
+    margin-right: 0px;
+    margin-left: 25px;
+    cursor: pointer;
+}
+
+.profile__edit-button:hover {
+    opacity: 0.6;
 }
 
 .profile__add-button {
@@ -37,14 +47,28 @@
     height: 50px;
     margin-left: auto;
     margin-right: 0;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #fff;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.profile__add-button:hover {
+    opacity: 0.6;
 }
 
 .profile__title {
+    font-family: "Inter";
     font-size: 40px;
     line-height: 48px;
     font-weight: 500;
     grid-area: title;
     margin: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 415px;
 }
 
 .profile__description {
@@ -54,4 +78,8 @@
     margin-top: 7px;
     margin-bottom: 0;
     grid-area: description;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: 282px;
 }
