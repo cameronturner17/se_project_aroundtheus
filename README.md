@@ -16,4 +16,4 @@ In this project I used HTML and CSS to create a landing page for users to share 
   
 **GitHub**  
   
-A link to my GitHub account where you can find this repository. https://github.com/cameronturner17/se_project_aroundtheus
+A link to my published project. https://cameronturner17.github.io/se_project_aroundtheus/
