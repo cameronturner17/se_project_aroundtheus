@@ -17,3 +17,7 @@ In this project I used HTML and CSS to create a landing page for users to share 
 **GitHub**  
   
 A link to my published project. https://cameronturner17.github.io/se_project_aroundtheus/
+
+**Project3video**
+Here is a link to a video overview of my project! 
+https://drive.google.com/file/d/1l9vSXPbdqZ6YM7xRDfAqLdG81lq3er4n/view?usp=drive_link
