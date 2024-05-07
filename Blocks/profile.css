@@ -146,6 +146,7 @@
       .profile__description {
         line-height: 16.94px;
         font-size: 14px;
+        padding-top: 14px;
         padding-bottom: 36px;
         margin: 0;
       }
