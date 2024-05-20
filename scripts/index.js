@@ -1,4 +1,4 @@
-const intialCards = [
+const initialCards = [
     {
         title: "Yosemite Valley",
         link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
@@ -17,7 +17,7 @@ const intialCards = [
     },
     {
         title: "Vanoise National Park",
-        link: "practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/vanoise.jpg",
+        link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/vanoise.jpg",
     },
     {
         title: "Lago di Braise",
@@ -26,4 +26,4 @@ const intialCards = [
 
 ]
 
-console.log(intialCards);
+console.log(initialCards);
