@@ -1,0 +1,79 @@
+.modal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    display: none;
+}
+
+.modal_opened {
+    display: flex;
+}
+
+.modal__container {
+    background-color: #fff;
+    margin: auto;
+    width: 430px;
+    height: 330px;
+    padding: 36px;
+    border-radius: 10px;
+    position: relative;
+}
+
+.modal__heading {
+    font-family: "Inter", Arial, sans-serif;
+    font-size: 24px;
+    font-weight: 900;
+    line-height: 29.05px;
+    color: black;
+}
+
+.modal__close {
+    background-image: url(../images/Close\ Icon.svg);
+    border: none;
+    background-color: transparent;
+    width: 40px;
+    height: 40px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: absolute;
+    top: -45px;
+    right: -45px;
+    cursor: pointer;
+}
+
+.modal__button {
+    width: 358px;
+    height: 50.15px;
+    radius: 2px;
+    margin-top: 48px;
+    background-color: #000;
+    color: #fff;
+    margin-left: 36px;
+    margin-right: 36px;
+    font-family: "Inter", Arial, sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 21.78px;
+}
+
+.modal__input {
+    width: 358px;
+    height: 27.26px;
+    top: 306px;
+    left: 461px;
+    color: #000;
+    margin-bottom: 29.27px;
+    margin-left: 36px;
+    margin-right: 36px;
+    font-family: "Inter" Arial, sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16.94px;
+    border: none;
+    border-bottom: solid;
+    border-color: #000000;
+}
