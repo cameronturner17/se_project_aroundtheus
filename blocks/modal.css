@@ -77,3 +77,36 @@
     border-bottom: solid;
     border-color: #000000;
 }
+
+@media screen and (max-width: 320px) {
+    .modal__close {
+      width: 126px;
+      height: 26px;
+    }
+  
+    .modal__container {
+      width: 282px;
+      height: 322px;
+    }
+  
+    .modal__heading {
+      max-width: 238px;
+      height: 22px;
+      margin: 25px 22px 75px 22px;
+      font-size: 18px;
+    }
+  
+    .modal__input {
+      width: 238px;
+      height: 14px;
+      padding: 0px 0px 13px 0px;
+    }
+  
+    .modal__button {
+      width: 238px;
+      height: 46px;
+      margin: 45px 0px 25px 0px;
+      padding: 0;
+      font-size: 14px;
+    }
+  }
