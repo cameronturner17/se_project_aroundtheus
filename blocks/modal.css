@@ -29,6 +29,7 @@
     font-weight: 900;
     line-height: 29.05px;
     color: black;
+    margin-bottom: 54px;
 }
 
 .modal__close {
@@ -48,7 +49,7 @@
 .modal__button {
     width: 358px;
     height: 50.15px;
-    radius: 2px;
+    border-radius: 2px;
     margin-top: 48px;
     background-color: #000;
     color: #fff;
@@ -74,8 +75,7 @@
     font-size: 14px;
     line-height: 16.94px;
     border: none;
-    border-bottom: solid;
-    border-color: #000000;
+    border-bottom: 1px solid rgba(84 84 84 / 0.7);
 }
 
 @media screen and (max-width: 390px) {
