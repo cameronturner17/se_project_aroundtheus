@@ -79,11 +79,13 @@
     .modal__close {
       width: 126px;
       height: 26px;
+      right: -90px;
     }
   
     .modal__container {
       width: 282px;
       height: 322px;
+      padding-left: 22px;
     }
   
     .modal__heading {
