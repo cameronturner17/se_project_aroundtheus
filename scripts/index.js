@@ -115,4 +115,4 @@ addCardModalCloseButton.addEventListener("click", () => closePopup(addCardModal)
 profileEditForm.addEventListener("submit", handleProfileEditSubmit);
 addCardForm.addEventListener("submit", handleAddCardFormSubmit);
 
-initialCards.forEach((cardData)=> renderCard(cardData, cardsWrap));
+initialCards.forEach((cardData) => renderCard(cardData, cardsWrap));
