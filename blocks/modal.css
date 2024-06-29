@@ -24,6 +24,27 @@
     box-sizing: border-box;
 }
 
+.modal__preview-container {
+  background: none;
+  padding: 0;
+  max-height: 75vh;
+  max-width: 75vw;
+  width: auto;
+  display: flex;
+  border: none;
+}
+
+.modal__title {
+  position: absolute;
+  left: 0;
+  margin: 0;
+  color: #fff;
+  font-family: "Inter", Arial, sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+}
+
 .modal__heading {
     font-family: "Inter", Arial, sans-serif;
     font-size: 24px;
