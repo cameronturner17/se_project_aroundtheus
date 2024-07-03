@@ -79,7 +79,7 @@
 }
 
 .modal__button {
-    width: 358px;
+    max-width: 358px;
     height: 50.15px;
     border-radius: 2px;
     background-color: #000;
@@ -96,7 +96,7 @@
 }
 
 .modal__input {
-    width: 358px;
+    max-width: 358px;
     height: 27.26px;
     top: 306px;
     left: 461px;
@@ -108,6 +108,11 @@
     line-height: 16.94px;
     border: none;
     border-bottom: 1px solid rgba(84 84 84 / 0.7);
+}
+
+.modal__form {
+  display: flex;
+  flex-direction: column;
 }
 
 @media screen and (max-width: 480px) {
