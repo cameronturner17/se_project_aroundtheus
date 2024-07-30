@@ -128,7 +128,7 @@
   font-size: 12px;
   line-height: 15px;
   color: #ff0000;
-  position: absolute;
+  position: relative;
   top: 5px;
   left: 0;
   transition: opacity 0.3s;
