@@ -129,7 +129,7 @@
   line-height: 15px;
   color: #ff0000;
   position: relative;
-  top: 5px;
+  top: -25px;
   left: 0;
   transition: opacity 0.3s;
 }
