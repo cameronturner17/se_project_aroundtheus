@@ -53,12 +53,29 @@ const previewImageModalClose = document.querySelector("#preview-modal-close");
 
 /*Function*/
 
+function closePopupEsc(e) {
+    if (e.key === "Escape") {
+      const modalOpened = document.querySelector(".modal_opened");
+      closePopup(modalOpened);
+    }
+}
+
+function closePopupOverlay(e) {
+    if (e.target === e.currentTarget) {
+      closePopup(e.currentTarget);
+    }
+}
+
 function closePopup(modal) {
     modal.classList.remove("modal_opened");
+    document.removeEventListener("keydown", closePopupEsc);
+    modal.removeEventListener("mousedown", closePopupOverlay);
 }
 
 function openPopup(modal) {
     modal.classList.add("modal_opened");
+    document.addEventListener("keydown", closePopupEsc);
+    modal.addEventListener("mousedown", closePopupOverlay);
 }
 
 function renderCard(cardData, wrapper) {
