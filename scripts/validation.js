@@ -36,14 +36,14 @@ function toggleButtonState(inputEls, submitButton, {inactiveButtonClass}) {
     submitButton.disabled = false;
 }
 
-function enableButtton(submitButton, config) {
+function disableButtton(submitButton, config) {
   const { inactiveButtonClass } = config;
   submitButton.classList.add(inactiveButtonClass);
   submitButton.disabled = true;
   return;
 }
 
-function disableButton(submitButton, config) {
+function enableButton(submitButton, config) {
     const { inactiveButtonClass } = config;
     submitButton.classList.remove(inactiveButtonClass);
     submitButton.disabled = false;
