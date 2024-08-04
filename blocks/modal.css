@@ -48,6 +48,7 @@
   font-weight: 400;
   font-size: 12px;
   line-height: 14px;
+  top: calc(100% + 10px);
 }
 
 .modal__heading {
