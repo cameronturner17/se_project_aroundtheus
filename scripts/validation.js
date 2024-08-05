@@ -26,7 +26,7 @@ function hasInvalidInput(inputList) {
 
 function toggleButtonState(inputEls, submitButton, config) {
     if (hasInvalidInput(inputEls)) {
-      disableButton(submitButton, config);
+      disableButtton(submitButton, config);
     } else {
       enableButton(submitButton, config);
     }
