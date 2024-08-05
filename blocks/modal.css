@@ -32,14 +32,16 @@
 .modal__preview-container {
   background: none;
   padding: 0;
-  width: auto;
+  height: 500px;
+  margin: auto;
   display: flex;
   border: none;
+  position: relative;
 }
 
 .modal__image {
   max-width: 100%;
-  height: auto;
+  max-height: 100%;
 }
 
 .modal__title {
