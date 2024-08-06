@@ -134,10 +134,16 @@
   font-size: 12px;
   line-height: 15px;
   color: #ff0000;
-  position: relative;
-  top: -25px;
-  left: 0;
+  position: absolute;
   transition: opacity 0.3s;
+}
+
+.modal__error:first-of-type {
+  top: 151px;
+}
+
+.modal__error:last-of-type {
+  top: 210px;
 }
 
 .modal__error_visible {
