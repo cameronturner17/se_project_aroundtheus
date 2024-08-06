@@ -49,7 +49,7 @@ function enableButton(submitButton, config) {
 function setEventlisteners(formEl, options) {
     const {inputSelector} = options
     const inputEls = [...formEl.querySelectorAll(inputSelector)];
-    const submitButton = formEl.querySelector(".modal__button");
+    const submitButton = formEl.querySelector(options.submitButtonSelector);
     inputEls.forEach(inputEl => {
         inputEl.addEventListener("input", (e) => {
             checkInputValidity(formEl, inputEl, options);
