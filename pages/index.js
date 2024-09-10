@@ -51,8 +51,8 @@ const cardTemplate = document.querySelector("#card-template").content.firstEleme
 const cardsWrap = document.querySelector(".cards__list");
 const previewImageModal = document.querySelector("#preview-image-modal");
 const previewImageModalClose = document.querySelector("#preview-modal-close");
-const editFormEl = profileEditForm.querySelector(".modal__form");
-const addFormEl = addCardForm.querySelector(".modal__form");
+// const editFormEl = profileEditForm.querySelector(".modal__form");
+// const addFormEl = addCardForm.querySelector(".modal__form");
 const cardSelector = ("#card-template");
 
 /*Function*/
@@ -159,7 +159,7 @@ const config = {
     errorClass: "modal__error_visible"   
 };
 
-const editFormValidator = new FormValidator(config, editFormEl);
-const addFormValidator = new FormValidator(config, addFormEl);
+const editFormValidator = new FormValidator(config, profileEditForm);
+const addFormValidator = new FormValidator(config, addCardForm);
 editFormValidator.enableValidation();
 addFormValidator.enableValidation();
