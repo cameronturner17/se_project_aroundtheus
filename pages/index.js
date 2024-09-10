@@ -51,8 +51,6 @@ const cardTemplate = document.querySelector("#card-template").content.firstEleme
 const cardsWrap = document.querySelector(".cards__list");
 const previewImageModal = document.querySelector("#preview-image-modal");
 const previewImageModalClose = document.querySelector("#preview-modal-close");
-// const editFormEl = profileEditForm.querySelector(".modal__form");
-// const addFormEl = addCardForm.querySelector(".modal__form");
 const cardSelector = ("#card-template");
 
 /*Function*/
