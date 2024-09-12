@@ -1,3 +1,4 @@
+import Card from "../components/Card.js";
 import FormValidator from "../components/FormValidator.js";
 
 const initialCards = [
@@ -46,8 +47,6 @@ const cardTitleInput = document.querySelector("#card-title-input");
 const cardUrlInput = document.querySelector("#card-url-input");
 const profileEditForm = profileEditModal.querySelector(".modal__form");
 const addCardForm = addCardModal.querySelector(".modal__form");
-const cardListEl = document.querySelector(".cards__list");
-const cardTemplate = document.querySelector("#card-template").content.firstElementChild;
 const cardsWrap = document.querySelector(".cards__list");
 const previewImageModal = document.querySelector("#preview-image-modal");
 const previewImageModalClose = document.querySelector("#preview-modal-close");
@@ -86,33 +85,15 @@ function renderCard(cardData, wrapper) {
 }
 
 function getCardElement(cardData) {
-    const cardElement = cardTemplate.cloneNode(true);
-    const cardImageEl = cardElement.querySelector(".card__image");
-    const cardTitleEl = cardElement.querySelector(".card__title");
-    const likeButton = cardElement.querySelector(".card__like-button");
-    const cardDeleteButton = cardElement.querySelector(".card__delete-button");
-    const previewImage = document.querySelector(".modal__image");
-    const imageTitle = document.querySelector(".modal__title");
+  const card = new Card(cardData, cardSelector, handleImageClick);
+  return card.getView();
+}
 
-    cardDeleteButton.addEventListener("click", () => {
-        cardElement.remove();
-      });
-
-      cardImageEl.addEventListener("click", () => {
-        previewImage.src = cardData.link;
-        previewImage.alt = cardData.name;
-        imageTitle.textContent = cardData.name;
-        openPopup(previewImageModal);
-      });
-
-    likeButton.addEventListener("click", () => {
-        likeButton.classList.toggle("card__like-button_active");
-    });
-    
-    cardTitleEl.textContent = cardData.name;
-    cardImageEl.src = cardData.link;
-    cardImageEl.alt = cardData.name;
-    return cardElement;
+function handleImageClick(card) {
+    previewImage.src = card.link;
+    previewImage.alt = card.name;
+    imageTitle.textContent = card.name;
+    openPopup(previewImageModal);
 }
 
 /*Event Handler*/``
