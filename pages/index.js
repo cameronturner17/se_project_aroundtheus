@@ -48,8 +48,10 @@ const cardUrlInput = document.querySelector("#card-url-input");
 const profileEditForm = profileEditModal.querySelector(".modal__form");
 const addCardForm = addCardModal.querySelector(".modal__form");
 const cardsWrap = document.querySelector(".cards__list");
+const previewImage = document.querySelector("#modal-image");
 const previewImageModal = document.querySelector("#preview-image-modal");
 const previewImageModalClose = document.querySelector("#preview-modal-close");
+const imageTitle = document.querySelector("#preview-title");
 const cardSelector = ("#card-template");
 
 /*Function*/
