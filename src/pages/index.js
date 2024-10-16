@@ -74,7 +74,7 @@ const popupWithAddCardForm = new PopupWithForm(
   },
 );
 
-const popupWithImage = new PopupWithImage("#preview-image-modal");
+const popupWithImage = new PopupWithImage({popupSelector: "#preview-image-modal"});
 
 const section = new Section(
   {
@@ -92,7 +92,6 @@ const userInfo = new UserInfo({
 popupWithEditProfileForm.setEventListeners();
 popupWithAddCardForm.setEventListeners();
 popupWithImage.setEventListeners();
-section.setEventListeners();
 
 
 
@@ -161,11 +160,11 @@ function handleAddCardFormSubmit(e) {
 
 /*Event Listeners*/
 
-profileEditButton.addEventListener('click', () => { 
-    profileTitleInput.value = profileTitle.textContent;
-    profileDescriptionInput.value = profileDesciption.textContent;
-    openPopup(profileEditModal)
-});
+// profileEditButton.addEventListener('click', () => { 
+//     profileTitleInput.value = profileTitle.textContent;
+//     profileDescriptionInput.value = profileDesciption.textContent;
+//     openPopup(profileEditModal)
+// });
 addCardButton.addEventListener("click", () => openPopup(addCardModal));
 profileModalCloseButton.addEventListener("click", () => closePopup(profileEditModal));
 addCardModalCloseButton.addEventListener("click", () => closePopup(addCardModal))
