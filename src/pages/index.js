@@ -137,7 +137,7 @@ function handleImageClick(card) {
     previewImage.src = card.link;
     previewImage.alt = card.name;
     imageTitle.textContent = card.name;
-    openPopup(previewImageModal);
+    open(previewImageModal);
 }
 
 /*Event Handler*/``
@@ -156,21 +156,16 @@ function handleAddCardFormSubmit(e) {
     renderCard({name, link}, cardsWrap);
     closePopup(addCardModal);
     e.target.reset();
-  }
+}
 
-/*Event Listeners*/
+addCardButton.addEventListener("click", () => {
+    popupWithAddCardForm.open();
+});
 
-// profileEditButton.addEventListener('click', () => { 
-//     profileTitleInput.value = profileTitle.textContent;
-//     profileDescriptionInput.value = profileDesciption.textContent;
-//     openPopup(profileEditModal)
-// });
-addCardButton.addEventListener("click", () => openPopup(addCardModal));
-profileModalCloseButton.addEventListener("click", () => closePopup(profileEditModal));
-addCardModalCloseButton.addEventListener("click", () => closePopup(addCardModal))
-previewImageModalClose.addEventListener("click", () => closePopup(previewImageModal));
-profileEditForm.addEventListener("submit", handleProfileEditSubmit);
-addCardForm.addEventListener("submit", handleAddCardFormSubmit);
+profileEditButton.addEventListener("click", () => {
+    popupWithEditProfileForm.open();
+});
+
 
 initialCards.forEach((cardData) => renderCard(cardData, cardsWrap));
 
