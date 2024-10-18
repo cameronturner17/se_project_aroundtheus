@@ -45,7 +45,7 @@ const addCardModal = document.querySelector("#add-card-modal");
 const profileModalCloseButton = profileEditModal.querySelector("#modal-close-button");
 const addCardModalCloseButton = addCardModal.querySelector("#modal-close-button");
 const profileTitle = document.querySelector(".profile__title");
-const profileDesciption = document.querySelector(".profile__description");
+const profileDescription = document.querySelector(".profile__description");
 const profileTitleInput = document.querySelector("#profile-title-input");
 const profileDescriptionInput = document.querySelector("#profile-description-input");
 const cardTitleInput = document.querySelector("#card-title-input");
@@ -98,31 +98,6 @@ popupWithImage.setEventListeners();
 
 /*Function*/
 
-// function closePopupEsc(e) {
-//     if (e.key === "Escape") {
-//       const modalOpened = document.querySelector(".modal_opened");
-//       closePopup(modalOpened);
-//     }
-// }
-
-// function closePopupOverlay(e) {
-//     if (e.target === e.currentTarget) {
-//       closePopup(e.currentTarget);
-//     }
-// }
-
-// function closePopup(modal) {
-//     modal.classList.remove("modal_opened");
-//     document.removeEventListener("keydown", closePopupEsc);
-//     modal.removeEventListener("mousedown", closePopupOverlay);
-// }
-
-// function openPopup(modal) {
-//     modal.classList.add("modal_opened");
-//     document.addEventListener("keydown", closePopupEsc);
-//     modal.addEventListener("mousedown", closePopupOverlay);
-// }
-
 function renderCard(cardData, wrapper) {
     const cardElement = getCardElement(cardData);
     wrapper.prepend(cardElement);
@@ -137,15 +112,15 @@ function handleImageClick(card) {
     previewImage.src = card.link;
     previewImage.alt = card.name;
     imageTitle.textContent = card.name;
-    open(previewImageModal);
+    open(previewImage);
 }
 
-/*Event Handler*/``
+/*Event Handler*/
 
 function handleProfileEditSubmit(e) {
     e.preventDefault();
     profileTitle.textContent = profileTitleInput.value;
-    profileDesciption.textContent = profileDescriptionInput.value;
+    profileDescription.textContent = profileDescriptionInput.value;
     closePopup(profileEditModal);
 }
 
