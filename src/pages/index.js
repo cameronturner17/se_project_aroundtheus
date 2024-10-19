@@ -63,15 +63,15 @@ const cardSelector = ("#card-template");
 const popupWithEditProfileForm = new PopupWithForm(
   {
     popupSelector: "#profile-edit-modal",
-    handleFormSubmit: handleProfileEditSubmit,
   },
+  handleProfileEditSubmit,
 );
 
 const popupWithAddCardForm = new PopupWithForm(
   {
     popupSelector: "#add-card-modal",
-    handleFormSubmit: handleAddCardFormSubmit,
   },
+  handleAddCardFormSubmit,
 );
 
 const popupWithImage = new PopupWithImage({popupSelector: "#preview-image-modal"});
