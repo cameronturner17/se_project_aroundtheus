@@ -98,9 +98,9 @@ popupWithImage.setEventListeners();
 
 /*Function*/
 
-function renderCard(cardData, wrapper) {
-    const cardElement = getCardElement(cardData);
-    wrapper.prepend(cardElement);
+function renderCard(item, method = "addItem") {
+    const cardElement = getCardElement(item);
+    section[method](cardElement);
 }
 
 function getCardElement(cardData) {
@@ -108,29 +108,28 @@ function getCardElement(cardData) {
   return card.getView();
 }
 
-function handleImageClick(card) {
-    previewImage.src = card.link;
-    previewImage.alt = card.name;
-    imageTitle.textContent = card.name;
-    open(previewImage);
+function handleImageClick(data) {
+    popupImage.open({ name: data.name, link: data.link });
 }
 
 /*Event Handler*/
 
-function handleProfileEditSubmit(e) {
-    e.preventDefault();
-    profileTitle.textContent = profileTitleInput.value;
-    profileDescription.textContent = profileDescriptionInput.value;
-    closePopup(profileEditModal);
+function handleProfileEditSubmit(inputValue) {
+    userInfo.setUserInfo({
+        name: inputValue.title,
+        description: inputValue.description,
+    });
+    profileEditModal.close();
 }
 
 function handleAddCardFormSubmit(e) {
-    e.preventDefault();
-    const name = cardTitleInput.value;
-    const link = cardUrlInput.value;
-    renderCard({name, link}, cardsWrap);
-    closePopup(addCardModal);
-    e.target.reset();
+    const cardData = {
+        name: inputValue.title,
+        link: inputValue.url,
+    };
+    renderCard(cardData);
+    addCardModal.close();
+    addCardForm.reset();
 }
 
 addCardButton.addEventListener("click", () => {
