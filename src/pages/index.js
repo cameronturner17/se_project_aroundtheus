@@ -57,7 +57,7 @@ const previewImage = document.querySelector("#modal-image");
 const previewImageModal = document.querySelector("#preview-image-modal");
 const previewImageModalClose = document.querySelector("#preview-modal-close");
 const imageTitle = document.querySelector("#preview-title");
-const cardSelector = ("#card-template");
+const cardSelector = "#card-template";
 
 // Linked classes
 const popupWithEditProfileForm = new PopupWithForm(
@@ -74,7 +74,7 @@ const popupWithAddCardForm = new PopupWithForm(
   handleAddCardFormSubmit,
 );
 
-const popupWithImage = new PopupWithImage({popupSelector: "#preview-image-modal"});
+const popupWithImage = new PopupWithImage({popupSelector: "#preview-image-modal",});
 
 const section = new Section(
   {
@@ -100,7 +100,7 @@ popupWithImage.setEventListeners();
 
 function renderCard(item, method = "addItem") {
     const cardElement = getCardElement(item);
-    section[method](cardElement);
+    section.addItem(cardElement);
 }
 
 function getCardElement(cardData) {
@@ -109,7 +109,7 @@ function getCardElement(cardData) {
 }
 
 function handleImageClick(data) {
-    popupImage.open({ name: data.name, link: data.link });
+    popupWithImage.open({ name: data.name, link: data.link });
 }
 
 /*Event Handler*/
@@ -119,16 +119,16 @@ function handleProfileEditSubmit(inputValue) {
         name: inputValue.title,
         description: inputValue.description,
     });
-    profileEditModal.close();
+    popupWithEditProfileForm.close();
 }
 
-function handleAddCardFormSubmit(e) {
+function handleAddCardFormSubmit(inputValue) {
     const cardData = {
         name: inputValue.title,
         link: inputValue.url,
     };
     renderCard(cardData);
-    addCardModal.close();
+    popupWithAddCardForm.close();
     addCardForm.reset();
 }
 
