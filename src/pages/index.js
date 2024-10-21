@@ -137,6 +137,9 @@ addCardButton.addEventListener("click", () => {
 });
 
 profileEditButton.addEventListener("click", () => {
+    const currentUserInfo = userInfo.getUserInfo();
+    profileTitleInput.value = currentUserInfo.name
+    profileDescriptionInput.value = currentUserInfo.description
     popupWithEditProfileForm.open();
 });
 
