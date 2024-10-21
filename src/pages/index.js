@@ -129,7 +129,7 @@ function handleAddCardFormSubmit(inputValue) {
     };
     renderCard(cardData);
     popupWithAddCardForm.close();
-    addCardForm.reset();
+    popupWithAddCardForm.reset();
 }
 
 addCardButton.addEventListener("click", () => {
