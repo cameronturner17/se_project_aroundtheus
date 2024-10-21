@@ -1,14 +1,14 @@
-# Project 3: Around The U.S.
+# Project: Around The U.S.
 
 ### Overview  
 
 * Intro  
 * Figma  
-* GitHub 
+* GitHub
   
 **Intro**
   
-In this project I used HTML and CSS to create a landing page for users to share their photos they have taken from travels around the world. I incorperated diffent media queries to help with the website design depending on what type of devices the user is viewing on. I hope you enjoy!
+In this project I used HTML, CSS, and Javascript to create a landing page for users to share their photos they have taken from travels around the world. I incorperated diffent media queries to help with the website design depending on what type of devices the user is viewing on. I hope you enjoy!
 
 **Figma**  
   
