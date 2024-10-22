@@ -9,10 +9,6 @@ export default class PopupWithForm extends Popup {
         this._inputList = this._popupForm.querySelectorAll(".modal__input");
     }
 
-    close() {
-        super.close();
-    }
-
     getForm() {
         return this._popupForm;
     }

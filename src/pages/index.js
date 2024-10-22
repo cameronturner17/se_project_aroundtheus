@@ -4,7 +4,7 @@ import "../pages/index.css";
 import PopupWithImage from "../components/PopupWithImage.js";
 import PopupWithForm from "../components/PopupWithForm.js";
 import Section from "../components/Section.js";
-import UserInfo from "../components/UserInfor.js";
+import UserInfo from "../components/UserInfo.js";
 import { initialCards } from "../utils/Constants.js";
 import { config } from "../utils/Constants.js";
 
@@ -118,7 +118,7 @@ profileEditButton.addEventListener("click", () => {
 });
 
 
-initialCards.forEach((cardData) => renderCard(cardData, cardsWrap));
+initialCards.forEach((cardData) => renderCard(cardData));
 
 const editFormValidator = new FormValidator(config, profileEditForm);
 const addFormValidator = new FormValidator(config, addCardForm);
