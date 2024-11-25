@@ -8,4 +8,16 @@ export default class PopupWithConfirm extends Popup {
         this._submitButton = this._form.querySelector(".modal__button");
         this._defaultButtonText = this._submitButton.textContent;
     }
+
+    setSubmitAction(handleSubmit) {
+        this._handleSubmit = handleSubmit;
+    }
+
+    setEventListeners() {
+        super.setEventListeners();
+        this._form.addEventListener("submit", (e) => {
+          e.preventDefault();
+          this._handleSubmit();
+        });
+    }
 }

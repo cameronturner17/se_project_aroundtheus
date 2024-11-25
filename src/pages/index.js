@@ -7,7 +7,8 @@ import Section from "../components/Section.js";
 import UserInfo from "../components/UserInfo.js";
 import { initialCards } from "../utils/Constants.js";
 import { config } from "../utils/Constants.js";
-
+import Api from "../components/Api.js";
+import PopupWithConfirm from "../components/PopupWithConfirm.js";
 console.log(initialCards);
 
 /*Elements*/
@@ -32,6 +33,7 @@ const previewImageModal = document.querySelector("#preview-image-modal");
 const previewImageModalClose = document.querySelector("#preview-modal-close");
 const imageTitle = document.querySelector("#preview-title");
 const cardSelector = "#card-template";
+const cardDeleteModal = new PopupWithConfirm("#card-delete-modal");
 
 // Linked classes
 const popupWithEditProfileForm = new PopupWithForm(
@@ -66,6 +68,7 @@ const userInfo = new UserInfo({
 popupWithEditProfileForm.setEventListeners();
 popupWithAddCardForm.setEventListeners();
 popupWithImage.setEventListeners();
+cardDeleteModal.setEventListeners();
 
 
 

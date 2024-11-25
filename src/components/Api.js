@@ -45,11 +45,11 @@ export default class Api {
         });
     }
 
-    updateProfile({ name, descprition }) {
+    updateProfile({ name, description }) {
         return fetch(`${this._baseUrl}/user/me`, {
             method: "PATCH",
             headers: this._headers,
-            body: JSON.stringify({ name, descprition }),
+            body: JSON.stringify({ name, description }),
         });
     }
 
