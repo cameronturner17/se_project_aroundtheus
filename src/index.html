@@ -110,6 +110,36 @@
                 </div> 
             </li>
         </template>
+        <!--Card Delete Modal-->
+        <div class="modal" id="card-delete-modal">
+            <div class="modal__container">
+                <button class="modal__close" id="delete-modal-close-button"></button>
+                <p class="modal__heading">Are you sure?</p>
+                <form class="modal__form" id="delete-card-form">
+                    <button class="modal__button">Yes</button>
+                </form>
+            </div>
+        </div>
+        <!--Profile Picture Modal-->
+        <div class="modal">
+            <div class="modal__container">
+                <button class="modal__close"></button>
+                <p class="modal__heading">Change Profile Picture</p>
+                <form class="modal__form">
+                    <div class="modal__avatar">
+                        <input 
+                        class="modal__input"
+                        type="url"
+                        name="avatar"
+                        id="avatar-url-input"
+                        placeholder="Image Link"
+                        required
+                        >
+                    </div>
+                    <button class="modal__button">Save</button>
+                </form>
+            </div>
+        </div>
 
     </body>
 </html>
