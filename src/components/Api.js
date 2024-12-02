@@ -21,7 +21,9 @@ export default class Api {
             method: "POST",
             headers: this._headers,
             body: JSON.stringify({ name, link }),
-        });
+        })
+        .then(res => res.json())
+        .catch(err => console.log(err));
     }
 
     deleteCard(cardId) {
