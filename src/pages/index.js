@@ -51,6 +51,13 @@ const popupWithAddCardForm = new PopupWithForm(
 
 const popupWithImage = new PopupWithImage({popupSelector: "#preview-image-modal",});
 
+const cardDeleteModal = new PopupWithConfirm(
+  {
+    popupSelector: "#card-delete-modal",
+  },
+  handleCardDelete,
+);
+
 const section = new Section(
   {
     items: initialCards,
@@ -63,8 +70,6 @@ const userInfo = new UserInfo({
   nameElement: ".profile__title",
   jobElement: ".profile__description",
 });
-
-// const cardDeleteModal = new PopupWithConfirm("#card-delete-modal");
 
 const api = new Api({
   baseUrl: "https://around-api.en.tripleten-services.com/v1",
@@ -88,7 +93,7 @@ api.getInitialCards()
 popupWithEditProfileForm.setEventListeners();
 popupWithAddCardForm.setEventListeners();
 popupWithImage.setEventListeners();
-// cardDeleteModal.setEventListeners();
+cardDeleteModal.setEventListeners();
 
 
 
@@ -101,7 +106,7 @@ function renderCard(item, method = "addItem") {
 }
 
 function getCardElement(cardData) {
-  const card = new Card(cardData, cardSelector, handleImageClick);
+  const card = new Card(cardData, cardSelector, handleImageClick, handleCardDelete);
   return card.getView();
 }
 
@@ -135,6 +140,13 @@ function handleAddCardFormSubmit(inputValue) {
     .catch(err => {
       console.error("error adding card:", err);
     });
+}
+
+function handleCardDelete() {
+  cardDeleteModal.open();
+  cardDeleteModal.setSubmitAction(() => {
+    cardDeleteModal.setIsLoading(true);
+  });
 }
 
 addCardButton.addEventListener("click", () => {
