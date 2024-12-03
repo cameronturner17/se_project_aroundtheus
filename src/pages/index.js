@@ -55,7 +55,7 @@ const cardDeleteModal = new PopupWithConfirm(
   {
     popupSelector: "#card-delete-modal",
   },
-  handleCardDelete,
+  handleDeleteCard,
 );
 
 const section = new Section(
@@ -106,7 +106,7 @@ function renderCard(item, method = "addItem") {
 }
 
 function getCardElement(cardData) {
-  const card = new Card(cardData, cardSelector, handleImageClick, handleCardDelete);
+  const card = new Card(cardData, cardSelector, handleImageClick, handleDeleteCard);
   return card.getView();
 }
 
@@ -142,7 +142,7 @@ function handleAddCardFormSubmit(inputValue) {
     });
 }
 
-function handleCardDelete() {
+function handleDeleteCard() {
   cardDeleteModal.open();
   cardDeleteModal.setSubmitAction(() => {
     cardDeleteModal.setIsLoading(true);
