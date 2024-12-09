@@ -59,7 +59,9 @@ export default class Api {
         return fetch(`${this._baseUrl}/user/me/avatar`, {
             method: "PATCH",
             headers: this._headers,
-            body: JSON.stringify(url),
-        });
+            body: JSON.stringify({ avatar: url }),
+        })
+        .then(res => res.json())
+        .catch(err => console.log('Error updating avatar:', err));
     }
 }

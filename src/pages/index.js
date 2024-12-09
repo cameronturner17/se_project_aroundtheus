@@ -58,6 +58,13 @@ const cardDeleteModal = new PopupWithConfirm(
   handleDeleteCard,
 );
 
+const avatarEditModal = new PopupWithForm(
+  {
+    popupSelector: "#avatar-modal",
+  },
+  handleAvatarEditSubmit,
+);
+
 const section = new Section(
   {
     items: initialCards,
@@ -94,6 +101,7 @@ popupWithEditProfileForm.setEventListeners();
 popupWithAddCardForm.setEventListeners();
 popupWithImage.setEventListeners();
 cardDeleteModal.setEventListeners();
+avatarEditModal.setEventListeners();
 
 
 
@@ -147,6 +155,23 @@ function handleDeleteCard() {
   cardDeleteModal.setSubmitAction(() => {
     cardDeleteModal.setIsLoading(true);
   });
+}
+
+function handleAvatarEditSubmit(inputValues) {
+  const newAvatarUrl = inputValues.avatar;
+  api.updateAvatar(newAvatarUrl)
+      .then((response) => {
+          console.log("Avatar updated successfully:", response);
+          userInfo.setUserInfo({
+              name: userInfo.getUserInfo().name, 
+              description: userInfo.getUserInfo().description,
+              avatar: response.avatar,
+          });
+          avatarEditModal.close();
+      })
+      .catch((err) => {
+          console.error("Error updating avatar:", err);
+      });
 }
 
 addCardButton.addEventListener("click", () => {
