@@ -15,6 +15,7 @@ console.log(initialCards);
 
 const profileEditButton = document.querySelector("#profile-edit-button"); 
 const addCardButton = document.querySelector("#add-card-button");
+const avatarEditButton = document.querySelector("#avatar-edit-button");
 const profileEditModal = document.querySelector("#profile-edit-modal");
 const addCardModal = document.querySelector("#add-card-modal");
 const profileModalCloseButton = profileEditModal.querySelector("#modal-close-button");
@@ -176,6 +177,10 @@ function handleAvatarEditSubmit(inputValues) {
 
 addCardButton.addEventListener("click", () => {
     popupWithAddCardForm.open();
+});
+
+avatarEditButton.addEventListener("click", () => {
+  avatarEditModal.open();
 });
 
 profileEditButton.addEventListener("click", () => {
