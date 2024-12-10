@@ -39,11 +39,12 @@
 
 .profile__avatar-edit-button {
     background: url(../images/editbutton.svg) center no-repeat;
-    height: 26px;
-    width: 26px;
+    height: 120px;
+    width: 120px;
     border-width: 1px;
     border-style: solid;
     border-color: #fff;
+    border-radius: 100%;
     position: absolute;
     margin: 48px;
     opacity: 0;

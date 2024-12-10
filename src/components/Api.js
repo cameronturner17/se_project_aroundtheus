@@ -4,33 +4,34 @@ export default class Api {
         this._headers = options.headers;
     }
 
-    getInitialCards() {
-        return fetch(`${this._baseUrl}/cards`, {
+    async getInitialCards() {
+        const res = await fetch(`${this._baseUrl}/cards`, {
             headers: {
-              authorization: "348f594a-838b-49c6-bddf-9b8ba61e15cf"
+                authorization: "348f594a-838b-49c6-bddf-9b8ba61e15cf"
             }
-          })
-            .then(res => res.json())
-            .then((result) => {
-              console.log(result);
-            });
+        });
+        const result_1 = await res.json();
+        console.log(result_1);
     }
 
-    addCard({ name, link }) {
-        return fetch(`${this._baseUrl}/cards`, {
-            method: "POST",
-            headers: this._headers,
-            body: JSON.stringify({ name, link }),
-        })
-        .then(res => res.json())
-        .catch(err => console.log(err));
+    async addCard({ name, link }) {
+        try {
+            const res = await fetch(`${this._baseUrl}/cards`, {
+                method: "POST",
+                headers: this._headers,
+                body: JSON.stringify({ name, link }),
+            });
+            return await res.json();
+        } catch (err) {
+            return console.log(err);
+        }
     }
 
     deleteCard(cardId) {
         return fetch(`${this._baseUrl}/cards/${cardId}`, {
             method: "DELETE",
             headers: this._headers,
-        });
+          }).then(this._checkResponse);
     }
 
     likeCard(cardId) {
@@ -48,20 +49,23 @@ export default class Api {
     }
 
     updateProfile({ name, description }) {
-        return fetch(`${this._baseUrl}/user/me`, {
+        return fetch(`${this._baseUrl}/users/me`, {
             method: "PATCH",
             headers: this._headers,
             body: JSON.stringify({ name, description }),
         });
     }
 
-    updateAvatar(url) {
-        return fetch(`${this._baseUrl}/user/me/avatar`, {
-            method: "PATCH",
-            headers: this._headers,
-            body: JSON.stringify({ avatar: url }),
-        })
-        .then(res => res.json())
-        .catch(err => console.log('Error updating avatar:', err));
+    async updateAvatar(url) {
+        try {
+            const res = await fetch(`${this._baseUrl}/users/me/avatar`, {
+                method: "PATCH",
+                headers: this._headers,
+                body: JSON.stringify({ avatar: url }),
+            });
+            return await res.json();
+        } catch (err) {
+            return console.log('Error updating avatar:', err);
+        }
     }
 }

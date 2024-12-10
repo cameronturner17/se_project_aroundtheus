@@ -115,7 +115,11 @@ function renderCard(item, method = "addItem") {
 }
 
 function getCardElement(cardData) {
-  const card = new Card(cardData, cardSelector, handleImageClick, handleDeleteCard);
+  const card = new Card(cardData, 
+    cardSelector, 
+    handleImageClick, 
+    () => handleDeleteCard(cardData._id, card.getView())
+  );
   return card.getView();
 }
 
@@ -151,12 +155,26 @@ function handleAddCardFormSubmit(inputValue) {
     });
 }
 
-function handleDeleteCard() {
+function handleDeleteCard(cardId, cardElement) {
   cardDeleteModal.open();
+
   cardDeleteModal.setSubmitAction(() => {
     cardDeleteModal.setIsLoading(true);
+
+    api.deleteCard(cardId)
+      .then(() => {
+        cardElement.remove();
+        cardDeleteModal.close();
+      })
+      .catch((err) => {
+        console.error("Error deleting card:", err);
+      })
+      .finally(() => {
+        cardDeleteModal.setIsLoading(false);
+      });
   });
 }
+
 
 function handleAvatarEditSubmit(inputValues) {
   const newAvatarUrl = inputValues.avatar;
