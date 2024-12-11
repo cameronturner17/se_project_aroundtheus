@@ -77,6 +77,7 @@ const section = new Section(
 const userInfo = new UserInfo({
   nameElement: ".profile__title",
   jobElement: ".profile__description",
+  avatarElement: ".profile__image"
 });
 
 const api = new Api({
@@ -88,14 +89,11 @@ const api = new Api({
 });
 
 api.getInitialCards()
-  .then(cards => {
-    cards.forEach(card => {
-      const cardElement = getCardElement(item);
-      section.addItem(cardElement);
-    });
+  .then((cards) => {
+      section.renderItems(cards);
   })
-  .catch(err => {
-    console.error('Error fetching initial cards:', err);
+  .catch((err) => {
+      console.error('Error fetching initial cards:', err);
   });
 
 popupWithEditProfileForm.setEventListeners();
@@ -118,7 +116,7 @@ function getCardElement(cardData) {
   const card = new Card(cardData, 
     cardSelector, 
     handleImageClick, 
-    () => handleDeleteCard(cardData._id, card.getView())
+    handleDeleteCard
   );
   return card.getView();
 }

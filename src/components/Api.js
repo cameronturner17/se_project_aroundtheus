@@ -5,13 +5,17 @@ export default class Api {
     }
 
     async getInitialCards() {
-        const res = await fetch(`${this._baseUrl}/cards`, {
-            headers: {
-                authorization: "348f594a-838b-49c6-bddf-9b8ba61e15cf"
+        try {
+            const res = await fetch(`${this._baseUrl}/cards`, {
+                headers: this._headers,
+            });
+            if (!res.ok) {
+                throw new Error(`Error fetching cards: ${res.status}`);
             }
-        });
-        const result_1 = await res.json();
-        console.log(result_1);
+            return await res.json();
+        } catch (err) {
+            console.error("Error in getInitialCards:", err);
+        }
     }
 
     async addCard({ name, link }) {
