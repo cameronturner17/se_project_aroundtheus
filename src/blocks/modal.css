@@ -29,6 +29,21 @@
     box-sizing: border-box;
 }
 
+.modal__container.modal__container_delete-card {
+  background-color: #fff;
+  margin: auto;
+  width: 430px;
+  height: 181px;
+  padding: 36px;
+  border-radius: 10px;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.modal__container_avatar-edit {
+  height: 272px;
+}
+
 .modal__preview-container {
   background: none;
   padding: 0;
@@ -64,6 +79,10 @@
     color: black;
     margin-top: 0;
     margin-bottom: 54px;
+}
+
+.modal__heading.modal__heading_delete-card {
+  margin-bottom: 38px;
 }
 
 .modal__close {
@@ -119,6 +138,11 @@
     line-height: 16.94px;
     border: none;
     border-bottom: 1px solid rgba(84 84 84 / 0.7);
+}
+
+.modal__input.modal__input_avatar-edit {
+  width: 358px;
+  margin-bottom: 48px;
 }
 
 .modal__form {

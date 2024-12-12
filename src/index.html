@@ -113,9 +113,9 @@
         </template>
         <!--Card Delete Modal-->
         <div class="modal" id="card-delete-modal">
-            <div class="modal__container">
+            <div class="modal__container modal__container_delete-card">
                 <button class="modal__close" id="delete-modal-close-button"></button>
-                <p class="modal__heading">Are you sure?</p>
+                <p class="modal__heading modal__heading_delete-card">Are you sure?</p>
                 <form class="modal__form" id="delete-card-form">
                     <button class="modal__button">Yes</button>
                 </form>
@@ -123,13 +123,13 @@
         </div>
         <!--Avatar Modal-->
         <div class="modal" id="avatar-modal">
-            <div class="modal__container">
+            <div class="modal__container modal__container_avatar-edit">
                 <button class="modal__close" id="avatar-modal-close-button"></button>
                 <p class="modal__heading">Change Profile Picture</p>
                 <form class="modal__form">
                     <div class="modal__avatar">
                         <input 
-                        class="modal__input"
+                        class="modal__input modal__input_avatar-edit"
                         type="url"
                         name="avatar"
                         id="avatar-url-input"
