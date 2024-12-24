@@ -35,6 +35,15 @@ export default class Card {
         .querySelector(".card__like-button")
         .classList.toggle("card__like-button_active");
     }
+
+    isLiked() {
+      return this.cardData.likes.some(like => like._id === this.userId);
+    }
+
+    updateLikes(newLikes) {
+      this.cardData.likes = newLikes;
+    }
+  
   
     getView() {
       this._cardElement = document

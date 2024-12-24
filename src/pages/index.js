@@ -116,7 +116,8 @@ function getCardElement(cardData) {
   const card = new Card(cardData, 
     cardSelector, 
     handleImageClick, 
-    handleDeleteCard
+    handleDeleteCard,
+    handleCardLike
   );
   return card.getView();
 }
@@ -182,13 +183,30 @@ function handleAvatarEditSubmit(inputValues) {
           userInfo.setUserInfo({
               name: userInfo.getUserInfo().name, 
               description: userInfo.getUserInfo().description,
-              avatar: response.avatar,
+              avatar: userInfo.getUserInfo().avatar,
           });
           avatarEditModal.close();
       })
       .catch((err) => {
           console.error("Error updating avatar:", err);
       });
+}
+
+function handleCardLike(card) {
+  const isLiked = card.isLiked();
+  if (isLiked) {
+    api.dislikeCard(card.id)
+      .then(updatedCard => {
+        card.updateLikes(updatedCard.likes);
+      })
+      .catch(err => console.error(err));
+  } else {
+    api.likeCard(card.id)
+      .then(updatedCard => {
+        card.updateLikes(updatedCard.likes);
+      })
+      .catch(err => console.error(err));
+  }
 }
 
 addCardButton.addEventListener("click", () => {
