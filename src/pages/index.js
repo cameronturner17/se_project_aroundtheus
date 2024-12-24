@@ -195,13 +195,13 @@ function handleAvatarEditSubmit(inputValues) {
 function handleCardLike(card) {
   const isLiked = card.isLiked();
   if (isLiked) {
-    api.dislikeCard(card.id)
+    api.dislikeCard(card._id)
       .then(updatedCard => {
         card.updateLikes(updatedCard.likes);
       })
       .catch(err => console.error(err));
   } else {
-    api.likeCard(card.id)
+    api.likeCard(card._id)
       .then(updatedCard => {
         card.updateLikes(updatedCard.likes);
       })
