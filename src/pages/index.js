@@ -9,7 +9,6 @@ import { initialCards } from "../utils/Constants.js";
 import { config } from "../utils/Constants.js";
 import Api from "../components/Api.js";
 import PopupWithConfirm from "../components/PopupWithConfirm.js";
-console.log(initialCards);
 
 /*Elements*/
 
@@ -129,11 +128,20 @@ function handleImageClick(data) {
 /*Event Handler*/
 
 function handleProfileEditSubmit(inputValue) {
+  api.updateProfile({
+    name: inputValue.title,
+    description: inputValue.description
+  })
+  .then(updatedUserData => {
     userInfo.setUserInfo({
-        name: inputValue.title,
-        description: inputValue.description,
+      name: updatedUserData.name,
+      description: updatedUserData.description,
     });
     popupWithEditProfileForm.close();
+  })
+  .catch(err => {
+    console.error(err);
+  });
 }
 
 function handleAddCardFormSubmit(inputValue) {
