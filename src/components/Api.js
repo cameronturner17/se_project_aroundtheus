@@ -4,6 +4,13 @@ export default class Api {
         this._headers = options.headers;
     }
 
+    _checkResponse(res) {
+        if(!res.ok){
+            Promise.reject(`Error ${res.status}`)
+        }
+        return res.json();
+    }
+
     async getInitialCards() {
         try {
             const res = await fetch(`${this._baseUrl}/cards`, {
@@ -42,22 +49,22 @@ export default class Api {
         return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
             method: "PUT",
             headers: this._headers,
-        });
+        }).then(this._checkResponse);
     }
 
     dislikeCard(cardId) {
         return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
             method: "DELETE",
             headers: this._headers,
-        });
+        }).then(this._checkResponse);
     }
 
     updateProfile({ name, description }) {
         return fetch(`${this._baseUrl}/users/me`, {
             method: "PATCH",
             headers: this._headers,
-            body: JSON.stringify({ name, description }),
-        });
+            body: JSON.stringify({ name, about: description }),
+        }).then(this._checkResponse);
     }
 
     async updateAvatar(url) {
