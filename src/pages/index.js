@@ -87,6 +87,12 @@ const api = new Api({
   }
 });
 
+api.getUserInfo()
+  .then(userData => {
+    userInfo.setUserInfo(userData);
+  })
+  .catch(err => console.error(err));
+
 api.getInitialCards()
   .then((cards) => {
       section.renderItems(cards);
