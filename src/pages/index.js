@@ -27,6 +27,7 @@ const cardTitleInput = document.querySelector("#card-title-input");
 const cardUrlInput = document.querySelector("#card-url-input");
 const profileEditForm = profileEditModal.querySelector(".modal__form");
 const addCardForm = addCardModal.querySelector(".modal__form");
+const avatarEditForm = document.querySelector("#avatar-form");
 const cardsWrap = document.querySelector(".cards__list");
 const previewImage = document.querySelector("#modal-image");
 const previewImageModal = document.querySelector("#preview-image-modal");
@@ -243,5 +244,7 @@ initialCards.forEach((cardData) => renderCard(cardData));
 
 const editFormValidator = new FormValidator(config, profileEditForm);
 const addFormValidator = new FormValidator(config, addCardForm);
+const avatarFormValidator = new FormValidator(config, avatarEditForm);
 editFormValidator.enableValidation();
 addFormValidator.enableValidation();
+avatarFormValidator.enableValidation();

@@ -176,6 +176,11 @@
   visibility: visible;
 }
 
+.modal__error.modal__error_avatar-form {
+  top: 151px;
+  max-width: 358px;
+}
+
 .modal__input_type_error {
   border-bottom: 1px solid #f00;
 }
