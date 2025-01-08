@@ -68,7 +68,6 @@ const avatarEditModal = new PopupWithForm(
 
 const section = new Section(
   {
-    items: initialCards,
     renderer: renderCard,
   },
   ".cards__list"
@@ -142,7 +141,7 @@ function handleProfileEditSubmit(inputValue) {
   .then(updatedUserData => {
     userInfo.setUserInfo({
       name: updatedUserData.name,
-      description: updatedUserData.description,
+      about: updatedUserData.about,
     });
     popupWithEditProfileForm.close();
   })
@@ -156,13 +155,11 @@ function handleAddCardFormSubmit(inputValue) {
         name: inputValue.title,
         link: inputValue.url,
     };
-    renderCard(cardData);
     popupWithAddCardForm.close();
     addCardForm.reset();
     api.addCard(cardData)
     .then(newCard => {
-      const cardElement = getCardElement(item);
-      section.addItem(cardElement);
+      renderCard(newCard);
     })
     .catch(err => {
       console.error("error adding card:", err);
@@ -196,9 +193,9 @@ function handleAvatarEditSubmit(inputValues) {
       .then((response) => {
           console.log("Avatar updated successfully:", response);
           userInfo.setUserInfo({
-              name: userInfo.getUserInfo().name, 
-              description: userInfo.getUserInfo().description,
-              avatar: userInfo.getUserInfo().avatar,
+              name: response.name, 
+              description: response.description,
+              avatar: response.avatar,
           });
           avatarEditModal.close();
       })
@@ -235,7 +232,7 @@ avatarEditButton.addEventListener("click", () => {
 profileEditButton.addEventListener("click", () => {
     const currentUserInfo = userInfo.getUserInfo();
     profileTitleInput.value = currentUserInfo.name
-    profileDescriptionInput.value = currentUserInfo.description
+    profileDescriptionInput.value = currentUserInfo.about
     popupWithEditProfileForm.open();
 });
 
