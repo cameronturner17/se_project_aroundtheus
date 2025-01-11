@@ -155,11 +155,11 @@ function handleAddCardFormSubmit(inputValue) {
         name: inputValue.title,
         link: inputValue.url,
     };
-    popupWithAddCardForm.close();
-    addCardForm.reset();
     api.addCard(cardData)
     .then(newCard => {
       renderCard(newCard);
+      popupWithAddCardForm.close();
+      addCardForm.reset();
     })
     .catch(err => {
       console.error("error adding card:", err);
@@ -235,9 +235,6 @@ profileEditButton.addEventListener("click", () => {
     profileDescriptionInput.value = currentUserInfo.about
     popupWithEditProfileForm.open();
 });
-
-
-initialCards.forEach((cardData) => renderCard(cardData));
 
 const editFormValidator = new FormValidator(config, profileEditForm);
 const addFormValidator = new FormValidator(config, addCardForm);
