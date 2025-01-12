@@ -19,30 +19,18 @@ export default class Api {
     }
 
     async getInitialCards() {
-        try {
-            const res = await fetch(`${this._baseUrl}/cards`, {
-                headers: this._headers,
-            });
-            if (!res.ok) {
-                throw new Error(`Error fetching cards: ${res.status}`);
-            }
-            return await res.json();
-        } catch (err) {
-            console.error("Error in getInitialCards:", err);
-        }
+        const res = await fetch(`${this._baseUrl}/cards`, {
+            headers: this._headers,
+        });
+        return this._checkResponse(res);
     }
 
-    async addCard({ name, link }) {
-        try {
-            const res = await fetch(`${this._baseUrl}/cards`, {
-                method: "POST",
-                headers: this._headers,
-                body: JSON.stringify({ name, link }),
-            });
-            return await res.json();
-        } catch (err) {
-            return console.log(err);
-        }
+    addCard({ name, link }) {
+        return fetch(`${this._baseUrl}/cards`, {
+            method: "POST",
+            headers: this._headers,
+            body: JSON.stringify({ name, link }),
+        }).then(this._checkResponse);
     }
 
     deleteCard(cardId) {
@@ -75,15 +63,10 @@ export default class Api {
     }
 
     async updateAvatar(url) {
-        try {
-            const res = await fetch(`${this._baseUrl}/users/me/avatar`, {
-                method: "PATCH",
-                headers: this._headers,
-                body: JSON.stringify({ avatar: url }),
-            });
-            return await res.json();
-        } catch (err) {
-            return console.log('Error updating avatar:', err);
-        }
+        return fetch(`${this._baseUrl}/users/me/avatar`, {
+            method: "PATCH",
+            headers: this._headers,
+            body: JSON.stringify({ avatar: url }),
+        }).then(this._checkResponse);
     }
 }
