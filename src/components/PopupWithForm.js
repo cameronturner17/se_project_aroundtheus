@@ -30,7 +30,7 @@ export default class PopupWithForm extends Popup {
         });
     }  
 
-    // setIsLoading(isLoading) {
+    // setIsSaving(isLoading) {
     //     if (isLoading) {
     //       this._submitButton.textContent = "Saving...";
     //     } else {

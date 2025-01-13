@@ -194,7 +194,7 @@ function handleAvatarEditSubmit(inputValues) {
           console.log("Avatar updated successfully:", response);
           userInfo.setUserInfo({
               name: response.name, 
-              description: response.description,
+              about: response.about,
               avatar: response.avatar,
           });
           avatarEditModal.close();

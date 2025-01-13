@@ -23,7 +23,7 @@ export default class PopupWithConfirm extends Popup {
 
     setIsLoading(isLoading) {
     if (isLoading) {
-      this._submitButton.textContent = "Deleting...";
+      this._submitButton.textContent = "Saving...";
     } else {
       this._submitButton.textContent = this._defaultButtonText;
     }
