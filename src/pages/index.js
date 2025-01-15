@@ -134,6 +134,8 @@ function handleImageClick(data) {
 /*Event Handler*/
 
 function handleProfileEditSubmit(inputValue) {
+  popupWithEditProfileForm.setIsSaving(true);
+
   api.updateProfile({
     name: inputValue.title,
     description: inputValue.description
@@ -147,6 +149,9 @@ function handleProfileEditSubmit(inputValue) {
   })
   .catch(err => {
     console.error(err);
+  })
+  .finally(() => {
+    popupWithEditProfileForm.setIsSaving(false);
   });
 }
 
