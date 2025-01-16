@@ -156,6 +156,7 @@ function handleProfileEditSubmit(inputValue) {
 }
 
 function handleAddCardFormSubmit(inputValue) {
+  popupWithAddCardForm.setIsSaving(true);
     const cardData = {
         name: inputValue.title,
         link: inputValue.url,
@@ -168,6 +169,9 @@ function handleAddCardFormSubmit(inputValue) {
     })
     .catch(err => {
       console.error("error adding card:", err);
+    })
+    .finally(() => {
+      popupWithAddCardForm.setIsSaving(false);
     });
 }
 
@@ -193,6 +197,7 @@ function handleDeleteCard(cardId, cardElement) {
 
 
 function handleAvatarEditSubmit(inputValues) {
+  avatarEditModal.setIsSaving(true);
   const newAvatarUrl = inputValues.avatar;
   api.updateAvatar(newAvatarUrl)
       .then((response) => {
@@ -206,6 +211,9 @@ function handleAvatarEditSubmit(inputValues) {
       })
       .catch((err) => {
           console.error("Error updating avatar:", err);
+      })
+      .finally(() => {
+        avatarEditModal.setIsLoading(false);
       });
 }
 
