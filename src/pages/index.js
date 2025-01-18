@@ -166,6 +166,7 @@ function handleAddCardFormSubmit(inputValue) {
       renderCard(newCard);
       popupWithAddCardForm.close();
       addCardForm.reset();
+      addFormValidator.disableButton();
     })
     .catch(err => {
       console.error("error adding card:", err);
@@ -213,7 +214,7 @@ function handleAvatarEditSubmit(inputValues) {
           console.error("Error updating avatar:", err);
       })
       .finally(() => {
-        avatarEditModal.setIsLoading(false);
+        avatarEditModal.setIsSaving(false);
       });
 }
 
