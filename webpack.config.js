@@ -10,8 +10,8 @@ module.exports = {
     main: "./src/pages/index.js",
   },
   output: {
-    path: path.resolve(__dirname, "docs"),
-    filename: "bundle.js",
+    path: path.resolve(__dirname, "dist"),
+    filename: "main.js",
     publicPath: "",
   },
   target: ["web", "es5"],
