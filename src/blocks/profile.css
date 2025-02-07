@@ -37,7 +37,24 @@
     cursor: pointer;
 }
 
+.profile__avatar-edit-button {
+    background: url(../images/editbutton.svg) center no-repeat;
+    height: 120px;
+    width: 120px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #fff;
+    border-radius: 100%;
+    position: absolute;
+    margin-right: 24px;
+    opacity: 0;
+}
+
 .profile__edit-button:hover {
+    opacity: 0.6;
+}
+
+.profile__avatar-edit-button:hover {
     opacity: 0.6;
 }
 
